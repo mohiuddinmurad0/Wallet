@@ -9,7 +9,7 @@ const ScrollTop = () => {
       if (window.pageYOffset >= 180) {
         arrow.current.classList.add("right-10");
       } else {
-        arrow.current.classList.remove("right-10");
+        arrow.current.classList.remove("right-12");
       }
     };
   }, []);

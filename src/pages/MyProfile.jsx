@@ -1,16 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { BillContext } from "../Context/BillContext";
 
 const MyProfile = () => {
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  return (
+  const { userData } = useContext(BillContext)
+
+
+  console.log(userData)
+
+  return userData && (
+
     <div>
+
       <h1>User Profile</h1>
-      <p>Name: {userData?.name || "Not available"}</p>
-      <p>Email: {userData?.email || "Not available"}</p>
-      <p>Phone: {userData?.phone || "Not available"}</p>
+
+      <p>Name: {userData.data.name}</p>
+      <p>Email: {userData.data.email}</p>
+      <p>Balance: {userData.data.balance}</p>
+        
+
+    
     </div>
   );
 };

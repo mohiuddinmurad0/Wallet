@@ -7,10 +7,12 @@ import MyProfile from "./pages/MyProfile";
 import SendMoney from "./pages/SendMoney";
 import Setting from "./pages/Setting";
 import { ToastContainer } from "react-toastify";
+import ScrollTop from "./components/ScrollTop";
 
 const App = () => {
   return (
     <div>
+      <ScrollTop />
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -17,31 +17,32 @@ const BillContextProvider = (props) => {
     const [userData,setUserData] = useState(false)
 
 
-    // const loadUserProfileData = async () => {
+    const loadUserProfileData = async () => {
 
-    //     try {
+        try {
 
-    //         const {data} = await axios.get(backendUrl+'/api/customer/profile',{headers: {
-    //             "Authorization": `Bearer ${token}`,
-    //             "Content-Type": "application/json"
-    //           }});
-    //         //console.log('Response:', data);
+            const {data} = await axios.get(backendUrl+'/api/customer/profile',{headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+              }});
 
-    //         if(data.success){
+            //console.log('Response:', data);
 
-    //             //console.log('UserData:', data.userData);
-    //             setUserData(data.userData)
+            if(data.status){
+
+                console.log('UserData:', data.userData);
+                setUserData(data.userData)
         
-    //         } 
-    //         else{
-    //             toast.error(data.message)
-    //         }
+            } 
+            else{
+                toast.error(data.message)
+            }
             
-    //     } catch (error) {
-    //         console.log(error)
-    //         toast.error(error.message)
-    //     }
-    // }
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message)
+        }
+    }
 
 
     // variable  in Object  (access any components)
@@ -51,21 +52,21 @@ const BillContextProvider = (props) => {
         setToken,
         backendUrl,
         userData,setUserData,
-        // loadUserProfileData
+        loadUserProfileData
     }
 
 
-    // useEffect(()=>{
+    useEffect(()=>{
 
-    //     if(token){
+        if(token){
 
-    //         loadUserProfileData()
-    //     }
-    //     else{
-    //         setUserData(false)
-    //     }
+            loadUserProfileData()
+        }
+        else{
+            setUserData(false)
+        }
 
-    // },[token])
+    },[token])
 
 
     return(

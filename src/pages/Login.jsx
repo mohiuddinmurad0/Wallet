@@ -4,6 +4,7 @@ import { assets } from "../assets/assets";
 import { BillContext } from "../Context/BillContext";
 import { toast } from "react-toastify";
 import axios from "axios";
+import ScrollTop from "../components/ScrollTop";
 
 const Login = () => {
 
@@ -70,6 +71,7 @@ const Login = () => {
   return (
 
     <>
+    <ScrollTop />
       <div className="flex flex-col items-center justify-center min-h-screen px-6 sm:px-0 bg-primary">
         <h2
           onClick={() => navigate("/")}
